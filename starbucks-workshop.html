@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Starbucks Agentforce Workshop</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    .workshop-hero {
+      background: linear-gradient(135deg, var(--sf-blue-dk) 0%, var(--sf-blue) 55%, var(--sf-teal) 100%);
+      padding: 72px 0 0;
+      color: var(--white);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .workshop-hero .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255,255,255,.75);
+      font-size: .88rem;
+      font-weight: 500;
+      margin-bottom: 28px;
+      transition: color .15s;
+    }
+    .workshop-hero .back-link:hover { color: var(--white); text-decoration: none; }
+    .workshop-hero h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 700; margin-bottom: 16px; }
+    .workshop-hero .meta-pills {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .meta-pill {
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 999px;
+      padding: 5px 14px;
+      font-size: .82rem;
+      font-weight: 600;
+    }
+    .workshop-hero .hero-wave { line-height: 0; }
+    .workshop-hero .hero-wave svg { width: 100%; height: 60px; display: block; }
+
+    /* Page layout */
+    .workshop-body { padding: 72px 0 96px; background: var(--white); }
+    .workshop-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* Sidebar nav */
+    .sidebar {
+      position: sticky;
+      top: 80px;
+    }
+    .sidebar-nav { list-style: none; }
+    .sidebar-nav li + li { margin-top: 4px; }
+    .sidebar-nav a {
+      display: block;
+      padding: 7px 12px;
+      border-radius: 6px;
+      font-size: .88rem;
+      font-weight: 500;
+      color: var(--gray-500);
+      transition: background .15s, color .15s;
+    }
+    .sidebar-nav a:hover { background: var(--gray-50); color: var(--sf-blue); text-decoration: none; }
+    .sidebar-nav a.active { background: #e8f4ff; color: var(--sf-blue); font-weight: 600; }
+
+    /* Content sections */
+    .ws-section { margin-bottom: 64px; scroll-margin-top: 90px; }
+    .ws-section:last-child { margin-bottom: 0; }
+    .ws-section h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--gray-800);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--gray-100);
+    }
+    .ws-section p { color: var(--gray-500); line-height: 1.75; margin-bottom: 12px; }
+    .ws-section p:last-child { margin-bottom: 0; }
+
+    /* Placeholder block */
+    .placeholder {
+      background: var(--gray-50);
+      border: 2px dashed var(--gray-100);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      color: var(--gray-500);
+      font-size: .9rem;
+      line-height: 1.7;
+    }
+    .placeholder strong { color: var(--gray-800); display: block; margin-bottom: 6px; font-size: .95rem; }
+
+    /* Team grid */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 16px;
+    }
+    .team-card {
+      background: var(--gray-50);
+      border: 1px solid var(--gray-100);
+      border-radius: var(--radius);
+      padding: 20px 16px;
+      text-align: center;
+    }
+    .team-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--gray-100);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin: 0 auto 12px;
+    }
+    .team-name { font-size: .9rem; font-weight: 700; color: var(--gray-800); margin-bottom: 4px; }
+    .team-role { font-size: .78rem; color: var(--gray-500); }
+
+    /* Checklist */
+    .checklist { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: var(--gray-50);
+      border: 1px solid var(--gray-100);
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: .9rem;
+      color: var(--gray-800);
+    }
+    .checklist li .check-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--gray-100);
+      border: 2px solid var(--gray-100);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* Doc / resource link card */
+    .resource-link-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--gray-50);
+      border: 1px solid var(--gray-100);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      transition: box-shadow .15s, transform .15s;
+      text-decoration: none;
+    }
+    .resource-link-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); text-decoration: none; }
+    .resource-link-card .rlc-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      background: #e8f4ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+    .resource-link-card .rlc-text { flex: 1; }
+    .resource-link-card .rlc-title { font-size: 1rem; font-weight: 700; color: var(--gray-800); margin-bottom: 4px; }
+    .resource-link-card .rlc-sub { font-size: .85rem; color: var(--gray-500); }
+    .resource-link-card .rlc-arrow { color: var(--sf-blue); font-size: 1.2rem; }
+
+    .link-row { display: flex; flex-direction: column; gap: 12px; }
+
+    /* Use case steps */
+    .use-case-steps { display: flex; flex-direction: column; gap: 12px; }
+    .use-case-step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .step-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--sf-blue);
+      color: var(--white);
+      font-size: .85rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .step-body { flex: 1; }
+    .step-title { font-weight: 700; font-size: .95rem; color: var(--gray-800); margin-bottom: 4px; }
+    .step-desc { font-size: .88rem; color: var(--gray-500); }
+
+    /* Next steps */
+    .next-steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .next-step-card {
+      background: var(--gray-50);
+      border: 1px solid var(--gray-100);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+    .next-step-card .ns-icon { font-size: 1.6rem; margin-bottom: 10px; }
+    .next-step-card .ns-title { font-weight: 700; font-size: .95rem; color: var(--gray-800); margin-bottom: 6px; }
+    .next-step-card .ns-desc { font-size: .85rem; color: var(--gray-500); line-height: 1.6; }
+
+    @media (max-width: 760px) {
+      .workshop-layout { grid-template-columns: 1fr; }
+      .sidebar { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-brand">
+        <svg class="sf-cloud" viewBox="0 0 80 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M33.3 10.4a15.6 15.6 0 0 1 28.3 8.9c0 .7 0 1.4-.1 2.1A12.5 12.5 0 0 1 67.5 34 12.5 12.5 0 0 1 55 46.5H18.5A18.5 18.5 0 0 1 18.5 9.5a18.4 18.4 0 0 1 14.8 .9z" fill="white"/>
+        </svg>
+        <span class="header-title">Agentforce Workshops</span>
+      </div>
+      <nav class="header-nav">
+        <a href="index.html#workshops">Workshops</a>
+        <a href="index.html#resources">Resources</a>
+        <a href="index.html#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="workshop-hero">
+    <div class="container">
+      <a href="index.html" class="back-link">← Back to all workshops</a>
+      <h1>Starbucks Agentforce Workshop</h1>
+      <div class="meta-pills">
+        <span class="meta-pill">Beginner</span>
+        <span class="meta-pill">3 hrs</span>
+        <span class="meta-pill">Hands-On Lab</span>
+      </div>
+    </div>
+    <div class="hero-wave">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="white"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Body -->
+  <div class="workshop-body">
+    <div class="container">
+      <div class="workshop-layout">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+          <ul class="sidebar-nav">
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#prep">Pre-Workshop Prep</a></li>
+            <li><a href="#org-setup">Data &amp; Org Setup</a></li>
+            <li><a href="#workbook">Workbook</a></li>
+            <li><a href="#deck">Deck</a></li>
+            <li><a href="#use-case">Use Case</a></li>
+            <li><a href="#next-steps">Next Steps</a></li>
+          </ul>
+        </aside>
+
+        <!-- Main content -->
+        <main>
+
+          <!-- Overview -->
+          <section class="ws-section" id="overview">
+            <h2>Workshop Overview</h2>
+            <div class="placeholder">
+              <strong>Placeholder — add your overview here</strong>
+              Describe the workshop goals, what attendees will build, and what they'll walk away knowing. Example: "In this 3-hour hands-on session, Starbucks developers will build an Agentforce agent from scratch — defining topics, configuring actions, and previewing the agent end-to-end in a Salesforce sandbox."
+            </div>
+          </section>
+
+          <!-- Team -->
+          <section class="ws-section" id="team">
+            <h2>Team Involved</h2>
+            <div class="team-grid">
+              <div class="team-card">
+                <div class="team-avatar">👤</div>
+                <div class="team-name">Name</div>
+                <div class="team-role">Role / Team</div>
+              </div>
+              <div class="team-card">
+                <div class="team-avatar">👤</div>
+                <div class="team-name">Name</div>
+                <div class="team-role">Role / Team</div>
+              </div>
+              <div class="team-card">
+                <div class="team-avatar">👤</div>
+                <div class="team-name">Name</div>
+                <div class="team-role">Role / Team</div>
+              </div>
+              <div class="team-card">
+                <div class="team-avatar">👤</div>
+                <div class="team-name">Name</div>
+                <div class="team-role">Role / Team</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Pre-Workshop Prep -->
+          <section class="ws-section" id="prep">
+            <h2>Pre-Workshop Preparation</h2>
+            <p>Complete the following before the workshop day to make sure the session runs smoothly.</p>
+            <ul class="checklist">
+              <li><span class="check-icon"></span>Placeholder — pre-requisite 1 (e.g. complete Trailhead module X)</li>
+              <li><span class="check-icon"></span>Placeholder — pre-requisite 2 (e.g. request sandbox access)</li>
+              <li><span class="check-icon"></span>Placeholder — pre-requisite 3 (e.g. install Salesforce CLI)</li>
+              <li><span class="check-icon"></span>Placeholder — pre-requisite 4 (e.g. enable Agentforce feature flag)</li>
+            </ul>
+          </section>
+
+          <!-- Data & Org Setup -->
+          <section class="ws-section" id="org-setup">
+            <h2>Data &amp; Org Setup</h2>
+            <div class="placeholder">
+              <strong>Placeholder — describe the org and data requirements</strong>
+              Include: which sandbox type to use, what data to load before the session, any permission sets or feature flags to enable, and how to verify the org is ready. Example: "Use a Developer Edition org with the Winter '25 release. Load the sample Case data from the provided CSV before starting."
+            </div>
+          </section>
+
+          <!-- Workbook -->
+          <section class="ws-section" id="workbook">
+            <h2>Workbook</h2>
+            <p>Step-by-step lab guide for participants to follow during the session.</p>
+            <div class="link-row">
+              <a href="#" class="resource-link-card">
+                <div class="rlc-icon">📋</div>
+                <div class="rlc-text">
+                  <div class="rlc-title">Workshop Workbook</div>
+                  <div class="rlc-sub">Placeholder — replace # with your Google Doc or PDF link</div>
+                </div>
+                <span class="rlc-arrow">→</span>
+              </a>
+            </div>
+          </section>
+
+          <!-- Deck -->
+          <section class="ws-section" id="deck">
+            <h2>Deck Used</h2>
+            <p>Presentation slides used during the workshop.</p>
+            <div class="link-row">
+              <a href="#" class="resource-link-card">
+                <div class="rlc-icon">📑</div>
+                <div class="rlc-text">
+                  <div class="rlc-title">Workshop Slide Deck</div>
+                  <div class="rlc-sub">Placeholder — replace # with your Google Slides or PowerPoint link</div>
+                </div>
+                <span class="rlc-arrow">→</span>
+              </a>
+            </div>
+          </section>
+
+          <!-- Use Case -->
+          <section class="ws-section" id="use-case">
+            <h2>Use Case</h2>
+            <div class="placeholder" style="margin-bottom: 24px;">
+              <strong>Placeholder — describe the business scenario</strong>
+              Example: "Starbucks wants to automate partner (employee) support requests by building an Agentforce agent that can answer HR policy questions, escalate complex issues, and look up shift schedules — reducing load on the support team."
+            </div>
+            <div class="use-case-steps">
+              <div class="use-case-step">
+                <div class="step-num">1</div>
+                <div class="step-body">
+                  <div class="step-title">Placeholder — Step / phase title</div>
+                  <div class="step-desc">Describe what happens in this step of the use case.</div>
+                </div>
+              </div>
+              <div class="use-case-step">
+                <div class="step-num">2</div>
+                <div class="step-body">
+                  <div class="step-title">Placeholder — Step / phase title</div>
+                  <div class="step-desc">Describe what happens in this step of the use case.</div>
+                </div>
+              </div>
+              <div class="use-case-step">
+                <div class="step-num">3</div>
+                <div class="step-body">
+                  <div class="step-title">Placeholder — Step / phase title</div>
+                  <div class="step-desc">Describe what happens in this step of the use case.</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Next Steps -->
+          <section class="ws-section" id="next-steps">
+            <h2>Next Steps</h2>
+            <p>What to do after the workshop to keep the momentum going.</p>
+            <div class="next-steps-grid">
+              <div class="next-step-card">
+                <div class="ns-icon">🚀</div>
+                <div class="ns-title">Placeholder — Action item</div>
+                <div class="ns-desc">Describe the follow-up action. Example: Deploy your agent to a staging org and run end-to-end tests.</div>
+              </div>
+              <div class="next-step-card">
+                <div class="ns-icon">📚</div>
+                <div class="ns-title">Placeholder — Learning resource</div>
+                <div class="ns-desc">Link to a Trailhead module, doc, or video to continue learning.</div>
+              </div>
+              <div class="next-step-card">
+                <div class="ns-icon">🤝</div>
+                <div class="ns-title">Placeholder — Community / support</div>
+                <div class="ns-desc">Where to get help — Slack channel, office hours, Trailblazer Community group, etc.</div>
+              </div>
+              <div class="next-step-card">
+                <div class="ns-icon">🗓</div>
+                <div class="ns-title">Placeholder — Follow-up session</div>
+                <div class="ns-desc">Details about the next scheduled workshop or check-in.</div>
+              </div>
+            </div>
+          </section>
+
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>Built with &#9825; for the Salesforce community &nbsp;·&nbsp; <a href="https://developer.salesforce.com/agentforce" target="_blank" rel="noopener">Agentforce Docs</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // Highlight sidebar link on scroll
+    const sections = document.querySelectorAll('.ws-section');
+    const navLinks = document.querySelectorAll('.sidebar-nav a');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          navLinks.forEach(a => a.classList.remove('active'));
+          const active = document.querySelector(`.sidebar-nav a[href="#${e.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    sections.forEach(s => observer.observe(s));
+  </script>
+
+</body>
+</html>

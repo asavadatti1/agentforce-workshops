@@ -3,14 +3,14 @@
 const WORKSHOPS = [
   {
     id: "intro",
-    title: "Introduction to Agentforce",
-    description: "Learn the core concepts of Agentforce — agents, topics, actions, and the agent lifecycle. No prior AI experience required.",
+    title: "Starbucks Agentforce Workshop",
+    description: "A walkthrough of building an Agent including topics, actions, and Agentforce Vibes. No prior AI experience required.",
     level: "Beginner",
-    duration: "1 hr",
+    duration: "3 hrs",
     color: "#0176d3",       // accent bar color
     tagBg: "#e8f4ff",
     tagColor: "#0176d3",
-    link: "#",              // replace with your workshop page or Google Doc link
+    link: "starbucks-workshop.html",
   },
   {
     id: "agent-builder",
