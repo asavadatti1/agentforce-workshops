@@ -234,10 +234,10 @@
   <header class="site-header">
     <div class="container">
       <div class="header-brand">
-        <svg class="sf-cloud" viewBox="0 0 80 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M33.3 10.4a15.6 15.6 0 0 1 28.3 8.9c0 .7 0 1.4-.1 2.1A12.5 12.5 0 0 1 67.5 34 12.5 12.5 0 0 1 55 46.5H18.5A18.5 18.5 0 0 1 18.5 9.5a18.4 18.4 0 0 1 14.8 .9z" fill="white"/>
-        </svg>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg" alt="Salesforce" style="height:32px;" />
         <span class="header-title">Agentforce Workshops</span>
+        <span style="color:rgba(255,255,255,.35);font-size:1.1rem;margin:0 6px;">×</span>
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/120px-Starbucks_Corporation_Logo_2011.svg.png" alt="Starbucks" style="height:32px;width:32px;border-radius:50%;" />
       </div>
       <nav class="header-nav">
         <a href="index.html#workshops">Workshops</a>
@@ -251,6 +251,11 @@
   <section class="workshop-hero">
     <div class="container">
       <a href="index.html" class="back-link">← Back to all workshops</a>
+      <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:28px;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg" alt="Salesforce" style="height:44px;" />
+        <span style="color:rgba(255,255,255,.5);font-size:1.4rem;">×</span>
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/120px-Starbucks_Corporation_Logo_2011.svg.png" alt="Starbucks" style="height:48px;width:48px;border-radius:50%;" />
+      </div>
       <h1>Starbucks Agentforce Workshop</h1>
       <div class="meta-pills">
         <span class="meta-pill">Beginner</span>
@@ -286,13 +291,25 @@
 
         <!-- Main content -->
         <main>
-
           <!-- Overview -->
           <section class="ws-section" id="overview">
             <h2>Workshop Overview</h2>
             <div class="placeholder">
-              <strong>Placeholder — add your overview here</strong>
-              Describe the workshop goals, what attendees will build, and what they'll walk away knowing. Example: "In this 3-hour hands-on session, Starbucks developers will build an Agentforce agent from scratch — defining topics, configuring actions, and previewing the agent end-to-end in a Salesforce sandbox."
+              <strong>Goal</strong>
+              The Starbucks onsite Agentforce workshop took place on June 4th, 2026. The workshop was a hands-on customer engagement designed to help Starbucks take steps toward becoming an "Agentic Enterprise." 
+              <br />
+              <br />
+              The goal was to give the Starbucks team practical experience building agents using the new Agentforce Builder, Agent Script, and Agentforce Vibes. 
+              <br />
+              <br />
+              The workshop was a major success, with Starbucks attendees responding enthusiastically. Key feedback from the customer included:
+             <br />
+             <br />
+              <ul>
+                <li>This was exactly what we were looking for</li>
+                <li>Let's dig into Headless</li>
+                <li>This is exciting</li>
+              </ul>
             </div>
           </section>
 
@@ -302,36 +319,39 @@
             <div class="team-grid">
               <div class="team-card">
                 <div class="team-avatar">👤</div>
-                <div class="team-name">Name</div>
-                <div class="team-role">Role / Team</div>
+                <div class="team-name">Sitara Chhajed</div>
+                <div class="team-role">Core SE</div>
               </div>
               <div class="team-card">
                 <div class="team-avatar">👤</div>
-                <div class="team-name">Name</div>
-                <div class="team-role">Role / Team</div>
+                <div class="team-name">Courtney Fossatti</div>
+                <div class="team-role">Account Director</div>
               </div>
               <div class="team-card">
                 <div class="team-avatar">👤</div>
-                <div class="team-name">Name</div>
-                <div class="team-role">Role / Team</div>
+                <div class="team-name">Amrita Savadatti</div>
+                <div class="team-role">Core TA</div>
               </div>
               <div class="team-card">
                 <div class="team-avatar">👤</div>
-                <div class="team-name">Name</div>
-                <div class="team-role">Role / Team</div>
+                <div class="team-name">Phillip Haack</div>
+                <div class="team-role">Core EA</div>
               </div>
             </div>
           </section>
 
           <!-- Pre-Workshop Prep -->
           <section class="ws-section" id="prep">
-            <h2>Pre-Workshop Preparation</h2>
+            <h2>Pre-Workshop Preparation and Check-List</h2>
             <p>Complete the following before the workshop day to make sure the session runs smoothly.</p>
             <ul class="checklist">
-              <li><span class="check-icon"></span>Placeholder — pre-requisite 1 (e.g. complete Trailhead module X)</li>
-              <li><span class="check-icon"></span>Placeholder — pre-requisite 2 (e.g. request sandbox access)</li>
-              <li><span class="check-icon"></span>Placeholder — pre-requisite 3 (e.g. install Salesforce CLI)</li>
-              <li><span class="check-icon"></span>Placeholder — pre-requisite 4 (e.g. enable Agentforce feature flag)</li>
+              <li><span class="check-icon"></span>Narrow down a use case relevant to the customer</li>
+              <li><span class="check-icon"></span>Create a workbook with steps</li>
+              <li><span class="check-icon"></span>Create a Deck to introduce the workshop</li>
+              <li><span class="check-icon"></span>List the objects/Data to seed relevant data for custom use-case</li>
+              <li><span class="check-icon"></span>Request orgs from OrgFarm</li>
+              <li><span class="check-icon"></span>Dry Run</li>
+              <li><span class="check-icon"></span>Optional: Host website for customers to have easy access to workbook.</li>
             </ul>
           </section>
 
@@ -339,8 +359,8 @@
           <section class="ws-section" id="org-setup">
             <h2>Data &amp; Org Setup</h2>
             <div class="placeholder">
-              <strong>Placeholder — describe the org and data requirements</strong>
-              Include: which sandbox type to use, what data to load before the session, any permission sets or feature flags to enable, and how to verify the org is ready. Example: "Use a Developer Edition org with the Winter '25 release. Load the sample Case data from the provided CSV before starting."
+              <strong>Requesting Orgs from Org Farm</strong>
+              In OrgFarm, you can request multiple production orgs. The template used for this workshop was the 'Agentforce Now Workshop-Agentforce Builder. The website for OrgFarm is <a href = "https://orgfarm.salesforce.com/orgs/requests"> OrgFarm </a> 
             </div>
           </section>
 
@@ -349,11 +369,11 @@
             <h2>Workbook</h2>
             <p>Step-by-step lab guide for participants to follow during the session.</p>
             <div class="link-row">
-              <a href="#" class="resource-link-card">
+              <a href="https://sbx-workshop-7d40196984b5.herokuapp.com/#intro-s0-introduction-to-the-workshop" target="_blank" rel="noopener" class="resource-link-card">
                 <div class="rlc-icon">📋</div>
                 <div class="rlc-text">
                   <div class="rlc-title">Workshop Workbook</div>
-                  <div class="rlc-sub">Placeholder — replace # with your Google Doc or PDF link</div>
+                  <div class="rlc-sub">Step-by-step lab guide for the Starbucks Agentforce workshop</div>
                 </div>
                 <span class="rlc-arrow">→</span>
               </a>
@@ -365,11 +385,11 @@
             <h2>Deck Used</h2>
             <p>Presentation slides used during the workshop.</p>
             <div class="link-row">
-              <a href="#" class="resource-link-card">
+              <a href="https://docs.google.com/presentation/d/1vbH_3nAtcSXYBXUhE7xu-NAGtm-LxazWF6BkAAA71Vo/edit" target="_blank" rel="noopener" class="resource-link-card">
                 <div class="rlc-icon">📑</div>
                 <div class="rlc-text">
                   <div class="rlc-title">Workshop Slide Deck</div>
-                  <div class="rlc-sub">Placeholder — replace # with your Google Slides or PowerPoint link</div>
+                  <div class="rlc-sub">Google Slides presentation used during the Starbucks Agentforce workshop</div>
                 </div>
                 <span class="rlc-arrow">→</span>
               </a>
@@ -380,29 +400,32 @@
           <section class="ws-section" id="use-case">
             <h2>Use Case</h2>
             <div class="placeholder" style="margin-bottom: 24px;">
-              <strong>Placeholder — describe the business scenario</strong>
-              Example: "Starbucks wants to automate partner (employee) support requests by building an Agentforce agent that can answer HR policy questions, escalate complex issues, and look up shift schedules — reducing load on the support team."
+              <strong>Pre-Visit Summary for Coffeehouse Consultants (CHCs)</strong>
+              Goal of the workshop was to help the cusotmer build an agent that could automatically generate store visit summaries for Coffeehouse Consultants (who manage licensed stores - stores in grocery, airport etc) that contains summary information about the store and possible items to check during the visit including open compliance records, previous visit issues, store performance etc. 
+              <br />
+              <br />
+              Attendees were essentially building a real-world, practical agent focused on the Licensed Store business — which is also the primary area for their upcoming POC!
             </div>
             <div class="use-case-steps">
               <div class="use-case-step">
                 <div class="step-num">1</div>
                 <div class="step-body">
-                  <div class="step-title">Placeholder — Step / phase title</div>
-                  <div class="step-desc">Describe what happens in this step of the use case.</div>
+                  <div class="step-title">Create a Custom Agent using Agentforce Builder</div>
+                  <div class="step-desc">Create an agent called Nexus agent and add relevant instructions and sub-agents to it.</div>
                 </div>
               </div>
               <div class="use-case-step">
                 <div class="step-num">2</div>
                 <div class="step-body">
-                  <div class="step-title">Placeholder — Step / phase title</div>
-                  <div class="step-desc">Describe what happens in this step of the use case.</div>
+                  <div class="step-title">Test the Custom Agent</div>
+                  <div class="step-desc">Test the Nexus agent with relevant questions to ensure it functions as expected.</div>
                 </div>
               </div>
               <div class="use-case-step">
                 <div class="step-num">3</div>
                 <div class="step-body">
-                  <div class="step-title">Placeholder — Step / phase title</div>
-                  <div class="step-desc">Describe what happens in this step of the use case.</div>
+                  <div class="step-title">Create a Custom Component using Agentforce Vibes</div>
+                  <div class="step-desc">Create a custom component using Agentforce Vibes to monitor compliance for the licensed stores.</div>
                 </div>
               </div>
             </div>
@@ -415,23 +438,23 @@
             <div class="next-steps-grid">
               <div class="next-step-card">
                 <div class="ns-icon">🚀</div>
-                <div class="ns-title">Placeholder — Action item</div>
-                <div class="ns-desc">Describe the follow-up action. Example: Deploy your agent to a staging org and run end-to-end tests.</div>
+                <div class="ns-title">Define meaningful use cases for a POC</div>
+                <div class="ns-desc">Work with the Starbucks team to identify high-impact scenarios ready to pilot with Agentforce.</div>
               </div>
               <div class="next-step-card">
                 <div class="ns-icon">📚</div>
-                <div class="ns-title">Placeholder — Learning resource</div>
-                <div class="ns-desc">Link to a Trailhead module, doc, or video to continue learning.</div>
+                <div class="ns-title">Share information about Headless 360</div>
+                <div class="ns-desc">Provide resources and guidance on Headless 360 to support Starbucks's broader Agentforce strategy.</div>
               </div>
               <div class="next-step-card">
                 <div class="ns-icon">🤝</div>
-                <div class="ns-title">Placeholder — Community / support</div>
-                <div class="ns-desc">Where to get help — Slack channel, office hours, Trailblazer Community group, etc.</div>
+                <div class="ns-title">Continued support as they explore Agentforce Vibes</div>
+                <div class="ns-desc">Stay available as a technical resource while the team experiments and builds with Agentforce Vibes.</div>
               </div>
               <div class="next-step-card">
                 <div class="ns-icon">🗓</div>
-                <div class="ns-title">Placeholder — Follow-up session</div>
-                <div class="ns-desc">Details about the next scheduled workshop or check-in.</div>
+                <div class="ns-title">Schedule a follow-up session</div>
+                <div class="ns-desc">Book a follow-up to review progress, answer questions, and plan the path to production.</div>
               </div>
             </div>
           </section>

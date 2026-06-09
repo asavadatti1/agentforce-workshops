@@ -4,13 +4,14 @@ const WORKSHOPS = [
   {
     id: "intro",
     title: "Starbucks Agentforce Workshop",
-    description: "A walkthrough of building an Agent including topics, actions, and Agentforce Vibes. No prior AI experience required.",
+    description: "Build Your First AI Agent using Topics, Agent Actions, Agent Script and Agentforce Vibes. No prior AI experience required.",
     level: "Beginner",
     duration: "3 hrs",
     color: "#0176d3",       // accent bar color
     tagBg: "#e8f4ff",
     tagColor: "#0176d3",
     link: "starbucks-workshop.html",
+    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/120px-Starbucks_Corporation_Logo_2011.svg.png",
   },
   {
     id: "agent-builder",

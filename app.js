@@ -5,7 +5,10 @@ function renderWorkshops() {
     <div class="workshop-card">
       <div class="card-accent" style="background:${w.color}"></div>
       <div class="card-body">
-        <span class="card-tag" style="background:${w.tagBg};color:${w.tagColor}">${w.level}</span>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+          <span class="card-tag" style="background:${w.tagBg};color:${w.tagColor}">${w.level}</span>
+          ${w.logo ? `<img src="${w.logo}" alt="" style="height:28px;width:28px;border-radius:50%;object-fit:cover;" />` : ""}
+        </div>
         <h3 class="card-title">${w.title}</h3>
         <p class="card-desc">${w.description}</p>
         <div class="card-meta">
