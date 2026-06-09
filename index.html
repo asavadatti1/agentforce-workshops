@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Salesforce Agentforce Hands-On Workshops</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-brand">
+        <svg class="sf-cloud" viewBox="0 0 80 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M33.3 10.4a15.6 15.6 0 0 1 28.3 8.9c0 .7 0 1.4-.1 2.1A12.5 12.5 0 0 1 67.5 34 12.5 12.5 0 0 1 55 46.5H18.5A18.5 18.5 0 0 1 18.5 9.5a18.4 18.4 0 0 1 14.8 .9z" fill="white"/>
+        </svg>
+        <span class="header-title">Agentforce Workshops</span>
+      </div>
+      <nav class="header-nav">
+        <a href="#workshops">Workshops</a>
+        <a href="#resources">Resources</a>
+        <a href="#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge">Hands-On Learning</div>
+      <h1>Salesforce Agentforce<br /><span class="hero-accent">Hands-On Workshops</span></h1>
+      <p class="hero-sub">Build intelligent AI agents on the Salesforce platform. Step-by-step labs, code samples, and resources to get you productive with Agentforce.</p>
+      <div class="hero-actions">
+        <a href="#workshops" class="btn btn-primary">Explore Workshops</a>
+        <a href="#resources" class="btn btn-outline">View Resources</a>
+      </div>
+    </div>
+    <div class="hero-wave">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="white"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Workshops -->
+  <section class="workshops" id="workshops">
+    <div class="container">
+      <h2 class="section-title">Workshop Catalog</h2>
+      <p class="section-sub">Each workshop is self-paced and includes slides, code samples, and exercises.</p>
+
+      <div class="workshop-grid" id="workshop-grid">
+        <!-- Cards injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Resources -->
+  <section class="resources" id="resources">
+    <div class="container">
+      <h2 class="section-title">Workshop Resources</h2>
+      <p class="section-sub">Everything you need in one place — slides, samples, videos, and links.</p>
+
+      <div class="resource-tabs">
+        <button class="tab active" data-tab="slides">Slides &amp; PDFs</button>
+        <button class="tab" data-tab="code">Code Samples</button>
+        <button class="tab" data-tab="videos">Videos</button>
+        <button class="tab" data-tab="links">Links &amp; Reading</button>
+      </div>
+
+      <div class="resource-panel active" id="tab-slides">
+        <div class="resource-grid" id="slides-grid"></div>
+      </div>
+      <div class="resource-panel" id="tab-code">
+        <div class="resource-grid" id="code-grid"></div>
+      </div>
+      <div class="resource-panel" id="tab-videos">
+        <div class="resource-grid" id="videos-grid"></div>
+      </div>
+      <div class="resource-panel" id="tab-links">
+        <div class="resource-grid" id="links-grid"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="container about-inner">
+      <div>
+        <h2>About These Workshops</h2>
+        <p>These hands-on labs are designed to help Salesforce developers and admins get up and running with Agentforce — the AI-first platform for building autonomous agents in Salesforce.</p>
+        <p>Whether you're a beginner or an experienced Salesforce professional, there's a workshop for you.</p>
+      </div>
+      <div class="about-stats">
+        <div class="stat"><span id="stat-workshops">0</span><label>Workshops</label></div>
+        <div class="stat"><span id="stat-resources">0</span><label>Resources</label></div>
+        <div class="stat"><span>Free</span><label>Always</label></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>Built with &#9825; for the Salesforce community &nbsp;·&nbsp; <a href="https://developer.salesforce.com/agentforce" target="_blank" rel="noopener">Agentforce Docs</a></p>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
